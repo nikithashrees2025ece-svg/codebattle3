@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body style="font-family: Arial;background: #4754ba;
+background: radial-gradient(circle, rgba(71, 84, 186, 1) 0%, rgba(216, 75, 135, 1) 81%, rgba(252, 70, 107, 1) 100%);" ><br>
+<h2 style="text-align:center;">CODEBATTLE REGISTRATION PORTAL</h2>
+<div id="box" style="
+    width:300px; 
+    margin:auto; 
+    padding:20px; 
+    border:1px solid #000; 
+    border-radius:10px; 
+    text-align:center;
+    background:white;
+    transition:0.5s;
+">
+
+    <form id="loginForm">
+        <label>ENTER USERNAME:</label>
+        <input type="text" id="username" placeholder="Username" required
+               style="width:90%; padding:8px; margin-bottom:10px;"><br>
+	<label>ENTER PASSWORD:</label>
+        <input type="password" id="password" placeholder="Password" required
+               style="width:90%; padding:8px; margin-bottom:10px;"><br>
+
+        <p id="msg" style="font-size:14px; font-weight:bold;"></p>
+
+        <button type="submit" style="padding:10px 20px;">Login</button>
+	</form>
+
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    var password = document.getElementById("password").value;
+    var msg = document.getElementById("msg");
+    var box = document.getElementById("box");
+
+    var rule = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+
+    if (!rule.test(password)) {
+        msg.style.color = "white";
+        msg.textContent = "Enter valid password includes special character, uppercase, lowercase & digit";
+        box.style.background = "linear-gradient(135deg, #ff3b3b, #ff7e5f)";
+    } else {
+
+        msg.style.color = "white";
+        msg.textContent = "Login Successful!";
+        box.style.background = "linear-gradient(135deg, #00c851, #007e33)";
+        alert("🎉🎊Logged In Successfully!"); 
+        window.location.href="code1.html";  
+ }
+       
+});
+</script>
+
+</body>
+</html>

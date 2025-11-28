@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CODEBATTLE ENTRY</title>
+<style>
+label{
+  color:white;
+}
+
+  body {
+    font-family: Arial, sans-serif;
+    
+    background-image:url("https://c8.alamy.com/comp/2M63BD1/businessman-clicks-java-programming-language-application-concept-on-virtual-screen-2M63BD1.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:centre; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    background-image:url("https://towardsdatascience.com/wp-content/uploads/2020/10/1fPN0gUGMAtwxbtXWg3uBng.jpeg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:centre; 
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  h2 {
+  color:white;
+    
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  label {
+
+    display: block;
+    margin-top: 15px;
+  }
+  input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  .error {
+    color: red;
+    font-size: 13px;
+  }
+  button {
+    margin-top: 20px;
+    width: 100%;
+    background-color: blue;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #55456B;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>CODEBATTLE ENTRY</h2>
+  <form id="entryForm" novalidate>
+    <label for="name">NAME:</label>
+    <input type="text" id="name" name="name" />
+    <div class="error" id="nameError"></div>
+
+    <label for="language">PROGRAMMING LANGUAGE:</label>
+    <select id="language" name="language">
+      <option value="">SELECT LANGUAGE</option>
+      <option value="C">C PROGRAM</option>
+      <option value="C++">C++ PROGRAM</option>
+      <option value="Java">JAVA PROGRAM</option>
+      <option value="Python">PYTHON PROGRAM</option>
+      <option value="JavaScript">JAVASCRIPT PROGRAM</option>
+      <option value="PHP">PHP PROGRAM</option>
+      <option value="R">R PROGRAM</option>
+      <option value="KOTLIN">KOTLIN PROGRAM</option>
+    </select>
+    <div class="error" id="languageError"></div>
+
+    <label for="experience">EXPERIENCE(years):</label>
+    <input type="number" id="experience" name="experience" min="0" max="50" />
+    <div class="error" id="experienceError"></div>
+
+    <button type="submit">SUBMIT</button>
+    
+  </form>
+</div>
+
+<script>
+  document.getElementById('entryForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const nameInput = document.getElementById('name');
+    const langSelect = document.getElementById('language');
+    const expInput = document.getElementById('experience');
+
+    const nameError = document.getElementById('nameError');
+    const langError = document.getElementById('languageError');
+    const expError = document.getElementById('experienceError');
+
+    let valid = true;
+
+    nameError.textContent = '';
+    langError.textContent = '';
+    expError.textContent = '';
+
+    if (!nameInput.value.trim()) {
+      nameError.textContent = 'Name is required';
+      valid = false;
+    }
+
+    if (!langSelect.value) {
+      langError.textContent = 'Please select a programming language';
+      valid = false;
+    }
+
+    if (expInput.value === '') {
+      expError.textContent = 'Experience is required';
+      valid = false;
+    } else if (isNaN(expInput.value) || expInput.value < 0 || expInput.value > 50) {
+      expError.textContent = 'Experience must be a number between 0 and 50.';
+      valid = false;
+    }
+
+    if (valid) {
+      alert('🎉🎉registration completed successful!!');
+  
+    }
+  });
+</script>
+    
+</body>
+</html>
